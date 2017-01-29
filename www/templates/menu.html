@@ -1,0 +1,79 @@
+<ion-side-menus enable-menu-with-back-views="false" cache-view="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button>
+
+       <img src="img/otclogo.svg" width="35px" ng-click="homepagenav()">
+        <button  class="button button-clear button-positive  header-text-font" ng-click="homepagenav()">OTC DEAL</button>
+
+      </ion-nav-buttons> 
+
+ <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-android-search align_icon" ui-sref="search"></button>
+       <button ng-controller="CartCtrl" class="button button-icon button-clear ion-android-cart align_icon" ng-click = "showPopup()"><i class="cart-position badge badge-assertive">{{NoOfQtry1| number}}</i>
+<p style = "display:none">{{NoOfQtry()}} </p>
+        </button>
+
+           </ion-nav-buttons>
+    </ion-nav-bar>
+       <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+
+ <ion-header-bar menu-close class="bar-stable ">
+
+      <a ng-click="logout()" class="item-content login" ng-if="loginvariable === true" && "regvariable !== 0">
+          <i class="ion-ios-unlocked positivee"></i> LOGOUT 
+        </a>
+        <a ui-sref='singin' class="item-content login" ng-if="loginvariable === false" && "regvariable === 0">
+          <i class="ion-android-person positivee"></i> LOGIN/SIGNUP
+        </a>
+
+    </ion-header-bar>
+    <ion-content>
+      <ion-list><div >
+    <ion-item menu-close ui-sref="app.home">
+          <i class="ion-medkit positive" style=""></i> HOME
+        </ion-item> 
+     </div>
+     <div ng-if="loginvariable === true" && "regvariable !== 0" ui-sref="app.MyAccount">
+          <ion-item menu-close >
+          <i class="ion-medkit positive" style=""></i> My Account
+        </ion-item></div>
+        <div class="item item-divider" style="
+ 
+    background-color: #E87733;
+">
+    <span class="divider-left" style="
+    color: white;
+">SHOP BY CATEGORY</span>
+
+  </div> 
+       <div ng-repeat="maincatitems in cat" ng-controller="CategoryCtrl" cache-view="false">  
+        <ion-item menu-close ng-repeat="maincatname in maincatitems.children"  ng-click="MainCategory(maincatname.category_id,maincatname.name)">
+      <i class="ion-medkit positive" style=""></i> {{maincatname.name}}
+        </ion-item>
+</div>
+      <div class="item item-divider" style="BACKGROUND-COLOR: #E87733;
+">
+    <!-- <span class="divider-left" style="
+    COLOR: WHITE;
+">MORE ..</span> -->
+
+  </div>
+       <!--  <ion-item menu-close ng-click="login()">
+          TRACK YOUR ORDER
+        </ion-item>
+ -->
+       </ion-list>
+    </ion-content>
+
+
+
+  </ion-side-menu>
+</ion-side-menus>

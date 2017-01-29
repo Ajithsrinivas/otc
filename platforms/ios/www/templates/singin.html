@@ -1,0 +1,48 @@
+<ion-view view-title="singup" cache-view="false">
+   <ion-pane>
+
+	  <div class="bar bar-header">
+       <div side="left">
+    <button class="button button-icon button-clear ion-chevron-left" ng-click="myGoBack()" ></button>
+
+       </div>
+       <img src="img/otclogo.svg" width="35px">
+       <button  class="button button-clear button-positive  header-text-font"  ui-sref="root" >OTC DEAL</button>
+    </div>
+      <ion-content>
+      <div class="content padding has-header">
+        <form name="authorizationForm"  ng-submit="signIn(authorizationForm)"   novalidate="">
+    <h4>LOGIN</h4>
+    <p class="message-error">{{errorMessage}}</p>
+    <div class="list">
+   <label class="item item-input item-stacked-label min-margin" ng-class="{'has-errors':authorizationForm.EmailId.$invalid && authorizationForm.EmailId.$touched}">
+     <span class="input-label" >Email</span>
+     <input type="email"  placeholder="username@domain.com" name="EmailId" ng-model="authorizationForm.emailId" required>
+     </label>
+     <p class="message-error" ng-show="authorizationForm.EmailId.$error.required && authorizationForm.EmailId.$touched">User name is required</p>
+     <p class="message-error" ng-show="authorizationForm.EmailId.$error.email  && authorizationForm.EmailId.$touched">Please enter valid email address</p>
+
+     <label class="item item-input item-stacked-label"  ng-class="{'has-errors': authorizationForm.PasswordId.$invalid && authorizationForm.PasswordId.$touched}">
+    <span class="input-label">Password</span>
+    <input type="{{inputType}}" placeholder="******" name="PasswordId"  ng-minlength="6" ng-model="authorizationForm.password" required>
+  </label>
+  <p class="message-error" ng-show="authorizationForm.PasswordId.$error.required && authorizationForm.PasswordId.$touched">Password is required</p>
+ <p class="message-error" ng-show="authorizationForm.PasswordId.$error.minlength && authorizationForm.PasswordId.$touched">Enter password as minimum 6 or more</p>
+
+  <ion-checkbox   ng-click="hideShowPassword()" ng-model="filter.blue" >Show Password</ion-checkbox>
+</div>
+<button class="button button-block button-positive"  ng-disabled="authorizationForm.$invalid">
+ Login
+</button>
+</form>
+
+<div class="middle">
+<p>By signing in you are agreeing to our Terms and Conditions </p>
+    </div>
+        <button ui-sref="create" class="button button-block button-orange" >Create account</button>
+        <div class="middle" ng-click="showPopup()"><a>Forgot password?</a></div>
+        </div>
+
+	  </ion-content>
+    </ion-pane>
+</ion-view>

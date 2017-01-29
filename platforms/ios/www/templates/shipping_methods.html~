@@ -1,0 +1,62 @@
+<ion-view >
+
+<ion-pane> 
+<ion-content>
+<div class="positive-color">
+  <div class="sub-header-text padding">SHIPPING METHODS</div>
+</div>
+
+<div class="list" ng-repeat="shipmethod in ShippingMethods" >
+
+
+                <ion-radio id="secondbutton" ng-value="shipmethod" ng-model="$parent.firstvalue"  ng-click="shipmethodtax(shipmethod.code)"/>{{shipmethod.method_title}}</ion-radio>
+                 </div>
+<div class="card" ng-show='one'>
+<div class="item item-divider">
+   CART TOTALS
+  </div>
+
+	<div class="row payment-methos-cal-border">
+	<div class="col">{{taxcalculation[0].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[0].amount | currency:""}}</div>
+	</div>
+
+	<div class="row payment-methos-cal-border">
+	<div class="col">{{taxcalculation[1].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[1].amount | currency:""}}</div>
+	</div>
+
+	<div class="row payment-methos-cal-border">
+	<div class="col">{{taxcalculation[2].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[2].amount | currency:""}}</div>
+	</div>
+
+	<div class="row">
+	<div class="col">{{taxcalculation[3].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[3].amount | currency:""}}</div>
+	</div>
+<div class="row">
+	<div class="col">{{taxcalculation[4].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[3].amount | currency:""}}</div>
+	</div>
+
+</div>
+
+ <div class="content padding">
+		   <button ng-click="submitForm()" class="button button-block button-orange" >Proceed to Pay</button>
+
+	</div>
+
+      </ion-content>
+    </ion-pane>
+
+
+
+
+
+</ion-view>

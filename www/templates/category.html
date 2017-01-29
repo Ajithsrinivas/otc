@@ -1,0 +1,42 @@
+ <ion-view cache-view="false">  
+
+<ion-pane> 
+      <ion-header-bar align-title="center" class="bar-positive">
+         <button class="button icon ion-navicon"></button>
+         <img class="title header-image" src="img/otcdeal_newlogo.png" >
+         <i class="ion-ios-search"></i>
+         <img class="title header-image" src="img/shoppingcart.png" >
+       </ion-header-bar>
+<div class="bar bar-subheader">
+  <h2 class="title catheading">{{categoriesname}}</h2> 
+</div>  
+        <ion-content class="content  has-subheader">
+        <div class="list" ng-controller ="CategoryCtrl">
+        <div ng-repeat="group in categorieslist">
+        <div ng-repeat="obj in group.children"> 
+
+          <ion-item class="item item-thumbnail-left" ng-click="toggleGroup(obj)" ng-class="{active: isGroupShown(obj)}">
+          <img src="https://www.otcdeal.com/media/catalog/category/{{obj.image}}">
+         <label>{{obj.name}}</label> 
+
+             <i class="icon float-right" ng-class="isGroupShown(obj) ? &apos;ion-chevron-up&apos; : &apos;ion-chevron-down&apos;"></i>
+            &#xA0;
+          </ion-item>
+
+          <ion-item class="item-accordion" ng-repeat="item in obj.children" ng-show="isGroupShown(obj)" ng-click="categorylist(item.category_id,item.name)">
+          <div class="row">
+          <div class="col-25"><img src="https://www.otcdeal.com/media/catalog/category/{{item.image}}" height="60" width="60"></div>
+          <div class="col-75 sub-cat text-wrap"> {{item.name}}</div>
+          </div>
+          </ion-item>
+
+       </div> 
+</div>
+</div>
+<!-- <button class="button button-full button-positive" ui-sref="app.productlist">
+ product listing page
+</button> -->
+      </ion-content>
+    </ion-pane>
+
+</ion-view>

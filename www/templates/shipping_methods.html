@@ -1,0 +1,105 @@
+<ion-view >
+
+<ion-pane> 
+<ion-content>
+<div class="positive-color">
+  <div class="sub-header-text padding">SHIPPING METHODS</div>
+</div>
+
+<div class="list" ng-repeat="shipmethod in ShippingMethods" >
+
+
+                <ion-radio id="secondbutton" ng-value="shipmethod" ng-model="$parent.firstvalue"  ng-click="shipmethodtax(shipmethod.code,shipmethod.method_title)"/>{{shipmethod.method_title}}</ion-radio>
+                 </div>
+<div class="card" ng-show='one'>
+<div class="item item-divider">
+   CART TOTALS
+  </div>
+<div class="row payment-methos-cal-border" ng-repeat="taxcalculation in taxcalculation ">
+	<div class="col">{{taxcalculation.title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation.amount | currency:""}}</div>
+	</div>
+
+	<!-- <div class="row payment-methos-cal-border">
+	<div class="col">{{taxcalculation[0].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[0].amount | currency:""}}</div>
+	</div>
+
+	<div class="row payment-methos-cal-border">
+	<div class="col">{{taxcalculation[1].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[1].amount | currency:""}}</div>
+	</div>
+
+	<div class="row payment-methos-cal-border">
+	<div class="col">{{taxcalculation[2].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[2].amount | currency:""}}</div>
+	</div>
+
+	<div class="row">
+	<div class="col">{{taxcalculation[3].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[3].amount | currency:""}}</div>
+	</div> -->
+<!-- <div class="row">
+	<div class="col">{{taxcalculation[4].title}}</div>
+
+	<div class="col text-right payment-methos-cal">${{taxcalculation[3].amount | currency:""}}</div>
+	</div>
+ -->
+
+</div>
+<div class="card">
+  <div class="item item-divider">
+    Coupon code
+  </div>
+<div class="row">
+<div class="col col-75">
+  	
+ <div class="list" style="margin-top:10px">
+  <label class="item item-input" style="border: 1px solid #ccc">
+    <input type="text" placeholder="Coupon code" ng-model="CouponArray.couponcode" required>
+  </label>
+  </div>
+  </div>
+  <div class="col">
+ 
+		   <button ng-click="Apply()" class="button button-block button-orange" >Apply</button>
+
+	</div>
+</div>
+<div class="row">
+<div class="col col-75">
+  	
+ <div class="list" style="margin-top:-14px">
+ <div class="Coupon-error">
+{{error}} 
+ </div>
+<div class="Coupon-success">
+{{success}} 
+ </div>
+  </div>
+  </div>
+  <div class="col">
+ 
+		   
+
+	</div>
+</div>
+</div>
+ <div class="content padding">
+		   <button ng-click="submitForm()" class="button button-block button-orange" >Proceed to Pay</button>
+
+	</div>
+
+      </ion-content>
+    </ion-pane>
+
+
+
+
+
+</ion-view>

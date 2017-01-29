@@ -1,0 +1,45 @@
+<ion-view >
+<!--   <ion-content>
+
+<button class="button button-full button-positive" ui-sref="app.home">
+ continue shopping
+</button>
+
+  </ion-content> -->
+ <ion-pane>
+      <div class="bar-stable bar bar-header">
+	  <label class="order_headlabel">ORDER CONFIRMATION</label>
+      	  </div>
+      <ion-content>
+	  <p class="order_para1 "> Your order has been received.</p>
+    <p class="order_para2 order_para_common">Thank You for your purchase! </p>
+	  <p class="order_para3 order_para_common">Your order is: <span class="order_span">{{orderId}}</span>.</p>
+	  <p class="order_para4 order_para_common">You will receive an order confirmation email with details of your order and a link to track its progress.</p>
+      <div align="center">
+		   <button class="button button-orange order_button" ng-click="continue()">Continue Shopping</button>
+		   </div>
+<div class="card">
+  <div class="item item-divider">
+  	<div class="row">
+    <div class="col col-25 text-center">Item</div>
+          <div class=" col col-25 text-center">Name</div>
+          <div class="col col-25 text-center">Qty</div>
+          <div class="col col-25 text-center">price</div>
+  </div></div>
+  <div class="item item-text-wrap">
+    <div class="row" ng-repeat="cartitem in productitempush" ng-controller="CartCtrl">
+    <div class="col col-25"><img ng-src="{{cartitem.image}}" width="70px"/></div>
+          <div class=" col col-25 order-confirm-text text-center"><p>{{cartitem.name}}</p></div>
+          <div class="col col-25 text-center"><p>{{cartitem.status}}</p></div>
+          <div class="col col-25 text-center"><p>{{cartitem.price | currency:""}}</p></div>
+  </div></div>
+
+  <div class="item item-divider row">
+    <div class=" col col-50"><span>{{taxcalculation[3].title}}</span></div>
+          <div class="col col-50 text-right"><span>${{taxcalculation[3].amount | currency:""}}</span></div>
+  </div>
+</div>
+	  </ion-content>
+    </ion-pane>
+
+</ion-view>

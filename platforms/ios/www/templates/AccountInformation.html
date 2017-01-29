@@ -1,0 +1,69 @@
+<ion-view cache-view="false">
+  <ion-content  lazy-scroll>
+  <div class="positive-color">
+
+  <div class="sub-header-text padding">Account Information</div>
+</div>
+<div class="card">
+  
+           <div class="list"> 
+   
+        <li class="item">
+       <label class="item item-input">
+    <input type="text" placeholder="First Name" value="{{customer_fname}}" ng-readonly="true">
+  </label>
+        </li>
+        <li class="item">
+         <label class="item item-input">
+    <input type="text" placeholder="Last Name" value="{{customer_lname}}" ng-readonly="true">
+  </label>
+        </li>
+        <li class="item">
+          <label class="item item-input">
+    
+    <input type="text" value="{{EmailId}}" ng-readonly="true" placeholder="User@mail.com">
+  </label>
+        </li>
+        <li class="item item-checkbox">
+           <label class="checkbox" ng-click="changepassword()">
+             <input type="checkbox">
+           </label>
+          Change Password 
+        </li></div> 
+  
+           <div class="card" ng-hide='reset'> 
+  <form ng-submit="ChangingPassword()" name="FormClearObject.AccountForm" novalidate="">   
+        <li class="item">
+       <label class="item item-input"  ng-class="{'has-errors': FormClearObject.AccountForm.oldPassword.$invalid && FormClearObject.AccountForm.oldPassword.$touched} ">  
+    <input type="password"    ng-model="UserDetails.oldPassword" ng-minlength="6" name="oldPassword" placeholder="Current Password" required> 
+  </label>  
+  <p class="message-error" ng-show="FormClearObject.AccountForm.oldPassword.$error.required && FormClearObject.AccountForm.oldPassword.$touched">password is required</p>
+ <p class="message-error" ng-show="FormClearObject.AccountForm.oldPassword.$error.minlength && FormClearObject.AccountForm.oldPassword.$touched">Enter password as minimum 6 or more</p>  
+        </li>  
+        <li class="item"> 
+         <label class="item item-input"  ng-class="{'has-errors': FormClearObject.AccountForm.newPassword.$invalid && FormClearObject.AccountForm.newPassword.$touched}">
+    <input type="password"   ng-model="UserDetails.newPassword" placeholder="New Password"  ng-minlength="6"  name="newPassword" required>      
+  </label>      
+  <p class="message-error" ng-show="FormClearObject.AccountForm.newPassword.$error.required && FormClearObject.AccountForm.newPassword.$touched">password is required</p>  
+ <p class="message-error" ng-show="FormClearObject.AccountForm.newPassword.$error.minlength && FormClearObject.AccountForm.newPassword.$touched">Enter password as minimum 6 or more</p>   
+        </li> 
+        <li class="item">  
+          <label class="item item-input"  ng-class="{'has-errors': FormClearObject.AccountForm.ConfirmPassword.$invalid &&FormClearObject.AccountForm.ConfirmPassword.$touched}">
+    
+    <input type="password" ng-model="UserDetails.ConfirmPassword" name="ConfirmPassword"  ng-minlength="6"  placeholder="Confirm New Password"  required>
+  </label>   
+ <p class="message-error" ng-show="FormClearObject.AccountForm.ConfirmPassword.$error.required && FormClearObject.AccountForm.ConfirmPassword.$touched">password is required</p> 
+ <p class="message-error" ng-show="FormClearObject.AccountForm.ConfirmPassword.$error.minlength && FormClearObject.AccountForm.ConfirmPassword.$touched">Enter password as minimum 6 or more</p>
+        </li>    
+    <p class={{messageerror}}>{{Useravailable}}</p>  
+
+        <button class="button button-block button-positive" ng-disabled="FormClearObject.AccountForm.$invalid">Save</button> 
+           </form>      
+</div>     
+   
+    
+  </div>
+
+
+  </ion-content>
+</ion-view>

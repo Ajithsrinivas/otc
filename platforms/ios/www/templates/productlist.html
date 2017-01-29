@@ -1,0 +1,32 @@
+<ion-view ng-controller="ProductListCtrl">
+<div class="bar bar-subheader">
+  <h2 class="title catheading">{{categoriesname}}</h2>
+</div>
+  <ion-content  lazy-scroll >
+
+ <div class="list marginProduct"  >
+
+       <!--  <a ng-repeat="productltitem in Eachcatproducts | limitTo: paginationLimit()"class="item item-thumbnail-left"   ng-click="productltpush(productltitem.product_id)" > -->
+   <a ng-repeat="productltitem in Eachcatproducts "class="item item-thumbnail-left"   ng-click="productltpush(productltitem.product_id)" >
+   <!--         <img image-lazy-src="{{productltitem.image}}"  image-lazy-loader="bubbles" image-lazy-distance-from-bottom-to-load="0">  -->
+ 
+      <img src="{{productltitem.image}}" />  
+          <h2>{{ productltitem.name  }}</h2>
+          <h4>Price: {{ productltitem.price  | currency}}</h4>
+
+<i class="ion-ios-star-outline "></i>
+<i class="ion-ios-star-outline"></i>
+<i class="ion-ios-star-outline"></i>
+<i class="ion-ios-star-outline"></i>
+<i class="ion-ios-star-outline"></i><!-- <i class="ion-ios-heart-outline assertive wishlistAlign" ></i> --></a><div style="text-align=center"><ion-spinner icon="crescent" ng-show="spaning"class="spinner-royal"></ion-spinner>
+</div>
+<ion-infinite-scroll  ng-show="showInfinite" icon="ion-load-c"  immediate-check ="false"    on-infinite="showMoreItems()" distance="10%"></ion-infinite-scroll><!-- 
+<button type="button" class="btn btn-primary"
+ 
+ ng-click="showMoreItems()">NEXT &gt;</button>
+      </div>
+       
+
+<!-- <ion-infinite-scroll    on-infinite="showMoreItems()" distance="10%"></ion-infinite-scroll>
+ -->  </ion-content>
+</ion-view>

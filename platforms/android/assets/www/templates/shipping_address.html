@@ -1,0 +1,81 @@
+<ion-view>
+ <ion-pane>
+ <ion-content>
+<div class="positive-color">
+
+  <div class="sub-header-text padding">SHIPPING ADDRESS</div>
+</div> 
+ 
+    <div class="content padding has-sub-header"> 
+<form name="shippingAddressForm" ng-submit="shipaddress()" novalidate="">
+    <div class="list">
+     <label class="item item-input item-stacked-label"  ng-class="{'has-errors':shippingAddressForm.firstname.$invalid && shippingAddressForm.firstname.$touched}">
+     <span class="input-label">FIRST NAME</span>  
+     <input type="text" placeholder="FIRST NAME"  name="firstname" ng-pattern ="/^[a-zA-Z\s]*$/"ng-model="ShippingAddressDetails.firstname" required>
+     </label>
+<p class="message-error" ng-show="shippingAddressForm.firstname.$error.required && shippingAddressForm.firstname.$touched">This is a required field.</p>
+<p class="message-error" ng-show="shippingAddressForm.firstname.$error.pattern && shippingAddressForm.firstname.$touched">Please enter Alphabets </p>
+
+     <label class="item item-input item-stacked-label" ng-class="{'has-errors':shippingAddressForm.lastname.$invalid && shippingAddressForm.lastname.$touched}">
+     <span class="input-label">LAST NAME</span>
+     <input type="text" placeholder="LAST NAME" name="lastname" ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="ShippingAddressDetails.lastname" required>
+     </label>
+<p class="message-error" ng-show="shippingAddressForm.lastname.$error.required && shippingAddressForm.lastname.$touched">This is a required field.</p>
+   <p class="message-error" ng-show="shippingAddressForm.lastname.$error.pattern && shippingAddressForm.lastname.$touched">Please enter Alphabets </p>
+     <label class="item item-input item-stacked-label" ng-class="{'has-errors':shippingAddressForm.postcode.$invalid && shippingAddressForm.postcode.$touched}">
+     <span class="input-label">Pincode</span>
+     <input type="tel" placeholder="Pincode" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" name="postcode"  ng-model="ShippingAddressDetails.postcode" required>
+</label>
+<p class="message-error" ng-show="shippingAddressForm.postcode.$error.required && shippingAddressForm.postcode.$touched">This is a required field.</p>
+ <p class="message-error" ng-show="shippingAddressForm.postcode.$error.pattern && shippingAddressForm.postcode.$touched">Invalid zipcode</p>
+
+     <label class="item item-input item-stacked-label" ng-class="{'has-errors':shippingAddressForm.street.$invalid && shippingAddressForm.street.$touched}">
+     <span class="input-label">Shipping Address</span>
+     <input type="text" placeholder="Shipping Address"   name="street"  ng-model="ShippingAddressDetails.street" required>
+     </label>
+   <p class="message-error" ng-show="shippingAddressForm.street.$error.required && shippingAddressForm.street.$touched">This is a required field.</p>
+
+     <label class="item item-input item-stacked-label" ng-class="{'has-errors':shippingAddressForm.city.$invalid && shippingAddressForm.city.$touched}" >
+     <span class="input-label" >City</span>
+     <input type="text" placeholder="City"  name="city"   ng-pattern ="/^[a-zA-Z\s]*$/" ng-model="ShippingAddressDetails.city" required>
+     </label>
+<p class="message-error" ng-show="shippingAddressForm.city.$error.required && shippingAddressForm.city.$touched">This is a required field.</p>
+  <p class="message-error" ng-show="shippingAddressForm.city.$error.pattern && shippingAddressForm.city.$touched">
+    Invalid city name
+  </p>
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      State
+    </div>
+    <select ng-model="ShippingAddressDetails.StatesList" ng-options="product as product.name for product in States track by product.id" required>
+ </select>
+    </label>
+<!--
+  <label class="item item-input item-stacked-label">
+  <span class="input-label" >State</span>
+ <select ng-model="ShippingAddressDetails.StatesList" ng-options="product as product.name for product in States track by product.id">
+ </select>
+    </label> -->
+
+  <label class="item item-input item-stacked-label"  ng-class="{'has-errors':shippingAddressForm.telephone.$invalid && shippingAddressForm.telephone.$dirty}">
+     <span class="input-label">Phone Number</span>
+     <input type="tel"  numbers-only   placeholder="Phone Number"  ng-pattern ="/^(\+?(\d{1}|\d{2}|\d{3})[- ]?)?\d{3}[- ]?\d{3}[- ]?\d{4}$/" ng-minlength="12"  maxlength="12"   name="telephone"  ng-model="ShippingAddressDetails.telephone" ng-keyup="KeyPress($event)"
+          required>         
+     </label>    
+<p class="message-error" ng-show="shippingAddressForm.telephone.$error.required && shippingAddressForm.telephone.$touched">MobileNumber is required</p>
+<p class="message-error" ng-show="((shippingAddressForm.city.$error.pattern||shippingAddressForm.telephone.$error.minlength || shippingAddressForm.telephone.$error.maxlength) && shippingAddressForm.telephone.$dirty)">Invalid Mobile Number</p>
+</div> 
+
+     <button class="button button-block button-orange" ng-disabled="shippingAddressForm.$invalid"> SAVE AND CONTINUE</button>
+</form> 
+
+</div>
+
+
+      </ion-content>
+    </ion-pane>
+
+
+
+</ion-view>

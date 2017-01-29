@@ -1,0 +1,9 @@
+<form name="RegistrationForm" novalidate>
+<label class="item item-input item-stacked-label" ng-class="{'has-errors':RegistrationForm.EmailId.$invalid && RegistrationForm.EmailId.$touched}">
+     <span class="input-label">Email</span>
+     <input type="email" placeholder="username@domain.com" ng-model="data.EmailId" name="EmailId" ng-focus="RemoveMessageError()" required>
+     </label> 
+     <p class="message-error" ng-show="RegistrationForm.EmailId.$error.required && RegistrationForm.EmailId.$touched">user name is required</p>  
+     <p class="message-error" ng-show="RegistrationForm.EmailId.$error.email  && RegistrationForm.EmailId.$touched">please enter valid email address</p> 
+     <p class="{{messageerror}}" ng-show="{{available}}">{{messageError}}</p>
+   </form>               

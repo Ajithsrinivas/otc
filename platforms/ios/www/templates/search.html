@@ -1,0 +1,25 @@
+<ion-view  cache-view="false">
+<div class="bar bar-header item-input-inset">
+<button class="button button-icon button-clear ion-android-arrow-back" ng-click="myGoBack()" ></button> <label class="item-input-wrapper textbox-search">
+
+<input type="search" placeholder="Search" ng-model="NodeId_1" autofocus ng-keyup="getValue()">
+</label>
+
+</div>
+<ion-content class="has-header" ng-controller = "ProductListCtrl">
+<!-- <h1>search</h1>
+<button class="button button-full button-positive" ui-sref="app.productlist">
+funny 
+</button> -->
+<ion-list >
+<ion-item ng-repeat="result in result" ng-click="productltpush(result.product_id,result.image)" ui-sref="app.product_Details">
+{{result.name}}  
+</ion-item>    
+<div>
+<p ng-show=flag class="error-notfound">Search results for {{NodeId_1}}</p>
+<div class="error-message">{{Result}}</div>
+</div>
+</ion-list> 
+
+</ion-content>
+</ion-view>

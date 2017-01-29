@@ -1,0 +1,79 @@
+<ion-views>
+   <ion-content >
+<div class="content padding" ng-repeat="productdetailsitem in productdetails">
+  <h4 id="veera">{{productdetailsitem.name}}</h4>
+  <div class="card">
+  <div class="item item-text-wrap product">
+  <!-- <div class="ion-chevron-left lefticon"></div>--> <img ng-src="{{productdetailsitem.image}}"></img>
+  <!-- <div class="ion-chevron-right righticon"></div>-->
+  </div>
+  </div>
+  <div class="card">
+       <div class="item item-divider">
+          Details
+        </div>
+        <div class="item item-text-wrap">
+         <!-- <div class="min-margin"><b>Brand:</b> <span class="positive-blue-color">King Bio Homeopathic Remedies</span></div> -->
+         <div class="min-margin"><b>UPC:</b> <span class="positive-blue-color" >{{productdetailsitem.upc}}</span></div>
+         <div class="min-margin"><b>FREE Shipping on orders over $35</b></div>
+        <div class="min-margin">
+        <span class="old-price">$ {{productdetailsitem.msrp | currency:""}}</span>
+        <span class="special-price">$ {{productdetailsitem.price | currency:""}}</span>
+        </div>
+
+
+        <div class="min-margin"><b> You Save:</b> <span class="positive-blue-color">$ {{(productdetailsitem.msrp - productdetailsitem.price) | currency:"" }} ({{(((productdetailsitem.msrp - productdetailsitem.price)/productdetailsitem.msrp)*100) | currency:""}}%)</span></div>
+        <div class="min-margin"><b>Availability:</b> <span class="positive-blue-color"> In stock</span></div>
+
+               <div class="min-margin gray-border" style="width:50%">
+
+                    <label class="item item-input item-select">
+    <div class="input-label" >
+      Qty
+    </div>
+    <select  ng-init="name = name || '1'" ng-model="name">
+                        <option  value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+                    </select>
+  </label>
+                    </div>
+
+        </div>
+
+
+      </div>
+
+        <div class="middle row" ng-controller="CartCtrl">
+<div class="col"><button class="button button-block button-positive" ng-click="addcart(productdetails)"> ADD TO CART</button> </div>
+        <div class="col"> <button class="button button-block button-orange" ng-click="buynow(productdetails)">BUY NOW</button> </div>
+        </div>
+
+
+       <div class="card">
+       <div class="item item-divider">
+          About This item
+        </div>
+        <div class="padding"><b>Description</b></div>
+        <div class="item item-text-wrap" ng-bind-html="productdetailsitem.description | RemoveTags">
+
+        </div>
+
+
+        <div class="padding"><b>Ingredients</b></div>
+        <div class="item item-text-wrap" ng-bind-html="productdetailsitem.ingredients | RemoveTags">
+
+        </div>
+      </div>
+		   <!--<div class="middle">Price:{{product.price}}</div>-->
+</div>
+
+  </ion-content>
+</ion-view>

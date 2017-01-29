@@ -1,0 +1,15 @@
+
+/**
+ * Progress
+ * --------------------------------------------------
+ */
+
+progress {
+  display: block;
+  margin: $progress-margin;
+  width: $progress-width;
+}
+ion-infinite-scroll:not(.active) .spinner,
+ion-infinite-scroll:not(.active) .icon:before {
+    display: inline-block;
+}

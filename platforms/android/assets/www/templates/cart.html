@@ -1,0 +1,57 @@
+<ion-view >
+  <ion-content>
+  <div class="positive-color">
+  <div class="sub-header-text padding">My Cart ({{NoOfQtry1}})</div>
+</div>
+ <div class="content padding">
+
+  <div class="card" ng-repeat="cartitem in productitempush" ng-controller="CartCtrl" >
+	<div class="item item-text-wrap ">
+
+  <div class="row">
+        <div class="col">
+        <img ng-src="{{cartitem.image}}" width="120px" height="120px">
+
+        </div>
+        <div class="col">
+          <p>{{cartitem.name}}</p>
+        </div>
+      </div>
+
+<div class="row">
+        <div class="col col-75">
+          <button class="button button-small icon ion-minus" ng-click="dec()"></button>
+    <input type="number" ng-model="cartitem.status" ng-init="cartitem.status=cartitem.status-0" class="cart-update">
+    <button class="button button-small icon ion-plus" ng-click="inc()"></button>
+        </div>
+        <div class="col">
+        <ion-item class="ion-close close-icon" ng-click="delete($index)">
+           </ion-item>
+
+        </div>
+
+      </div>
+
+      <div class="row item">
+      <div class="col text-left">Price </div >
+      <div class="col text-right">
+           <input type ="number" ng-model="tally1" class="cart-update" style="display:none!important"><span class="cart-price">${{cartitem.price * cartitem.status | currency:""}}</span>
+        </div>
+      </div>
+
+
+
+</div>
+<!--
+<div class="pay">Payable Amount:<input type="text" value="{{total()}}"></div>-->
+<p style = "display:none">{{total()}} </p>
+<p style = "display:none">{{NoOfQtry()}} </p>
+
+</div>
+<div class="item item-divider"><p>subtotal:<span style="float:right"><span>$</span>{{subtotal | currency:""}}</span></p>
+</div>
+<br>
+<div class="button button-orange footer-buttons" ng-click="checkout()">Proceed to Checkout</div>
+</ion-content>
+  </div>
+</ion-view>

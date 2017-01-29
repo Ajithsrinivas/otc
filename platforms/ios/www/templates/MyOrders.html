@@ -1,0 +1,39 @@
+
+<ion-view>
+
+  <ion-content  lazy-scroll>
+  <div class="positive-color">
+
+  <div class="sub-header-text padding">My Orders</div>
+</div>
+
+<div class="card" ng-repeat="group in orderstatus">
+<div class="row ">
+  <div class="col col-border-text">ORDER</div>
+  <div class="col col-border">#{{group.increment_id}}</div>
+  </div>
+  <div class="row ">
+  <div class="col col-border-text">DATE</div>
+  <div class="col col-border">{{group.created_at}}</div>
+  </div>
+  <div class="row ">
+  <div class="col col-border-text">SHIP TO</div>
+  <div class="col col-border">{{group.customer_firstname}} {{group.customer_lastname}}</div>
+  </div>
+  <div class="row ">
+  <div class="col col-border-text">ORDER TOTAL</div>
+  <div class="col col-border">${{group.grand_total}}</div>
+  </div>
+  <div class="row  ">
+  <div class="col col-border-text">ORDER STATUS</div>
+  <div class="col col-border">{{group.status}}</div>
+  </div>
+
+
+
+</div>
+
+     
+
+  </ion-content>
+</ion-view>
